@@ -1,38 +1,93 @@
 import java.io.*;
+
+/**
+  * @author michel Ramirez
+ * @author Luis Eduardo
+ * @author Luis Pedro
+ */
 public class superCalculadora implements Calculadora {
 
-	public String texto;
-	public int contSignos;
-	public int contNums;
-	public int largoCad;
-	public stackFactory nFactory;
-	public Stack<Integer> obj;
-	public String cadena;
-	public int a;
-	public int b;
+    /**
+     *este almacena el texto
+     */
+    public String texto;
+
+    /**
+     *numero de signos
+     */
+    public int contSignos;
+
+    /**
+     *paraque cuenta el numero de numeros
+     */
+    public int contNums;
+
+    /**
+     *para el largo de la cadena
+     */
+    public int largoCad;
+
+    /**
+     *El factory para obtener el tipo de dato
+     */
+    public stackFactory nFactory;
+
+    /**
+     *para el objeto de tipo stack que seleccione
+     */
+    public Stack<Integer> obj;
+
+    /**
+     * para la cadena ingresada
+     */
+    public String cadena;
+
+    /**
+     *para el 1er numero en operaciones
+     */
+    public int a;
+
+    /**
+     * para el 2do numero en operaciones
+     */
+    public int b;
 	int numCambiar;
 	
-	public superCalculadora (){
+    /**
+     *Es el constructor para la clase en donde seteamos los valores predeterminados
+     */
+    public superCalculadora (){
 		nFactory= new stackFactory();
 		contSignos =0;
 		contNums = 0;
-		obj= nFactory.getStack(2);
+		obj= nFactory.getStack(3);
 		largoCad=0;
 		cadena= "";
 		numCambiar = 0;
 		
 	}
 
-	
-	public void setString(String linea){
+    /**
+     *este metodo sirve para ingresar el string del usuario y obtener el largo
+     * @param linea
+     */
+    public void setString(String linea){
 		 cadena = linea;
 		largoCad=cadena.length();
 	}
-	public void meterVector (){
+
+    /**
+     *sirve para para meter la cadena del vecrt
+     */
+    public void meterVector (){
 		largoCad=cadena.length();
 	}
 	
-	public boolean calcularVector(){
+    /**
+     * sirve para calcular el vector y tambien tiene la programacion defensiva 
+     * @return
+     */
+    public boolean calcularVector(){
 		
 	
 		for (int i=0;i<largoCad;i++){ //Aqui cambias largo de la cadena
@@ -143,7 +198,11 @@ public class superCalculadora implements Calculadora {
 		return true;
 	}
 	
-	public int getResultado (){
+    /**
+     * sirve para poder obteneer el resultado de la lista
+     * @return
+     */
+    public int getResultado (){
 		a = obj.pop();
 		return a;
 	}
