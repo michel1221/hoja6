@@ -1,46 +1,65 @@
 import java.util.ArrayList;
+// Universidad del valle de Guatemala
+// Michel Ramirez Najera
+// carné: 14069
+// Luis Eduardo Ruano
+// Luis pedro Velezques
 
-public class StackArrayList<E>
- implements Stack<E>
-{
-	protected ArrayList<E> data;
+/**
+ *
+ * @author michel Ramirez
+ * @author Luis Eduardo
+ * @author Luis Pedro
+ * @param <E>
+ */
+public class StackArrayList<E> extends abstractStack<E> {
+	
+    /**
+     *srive para poder crear un valor de lisra
+     */
+    protected ArrayList<E> data;
 
-	public StackArrayList()
-	// post: constructs a new, empty stack
-	{
+    /**
+     *constructor 
+     */
+    public StackArrayList() {
+		
 		data = new ArrayList<E>();
 	}
 
-	public void push(E item)
-	// post: the value is added to the stack
-	//          will be popped next if no intervening push
-	{
+    /**
+     *
+     * @param item
+     */
+    public void push(E item) {
+		
 		data.add(item);
 	}
 
-	public E pop()
-	// pre: stack is not empty
-	// post: most recently pushed item is removed and returned
-	{
+    /**
+     * sirve para poder sacar un elemento del stack
+     * @return
+     */
+    public E pop() {
+		
 		return data.remove(size()-1);
 	}
 
-	public E peek()
-	// pre: stack is not empty
-	// post: top value (next to be popped) is returned
-	{
+    /**
+     *sirve para agarrar un elemento del stack 
+     * @return
+     */
+    public E peek() {
+		
 		return data.get(size() - 1);
 	}
 	
-	public int size()
-	// post: returns the number of elements in the stack
-	{
-		return data.size();
-	}
-  
-	public boolean empty()
-	// post: returns true if and only if the stack is empty
-	{
-		return size() == 0;
+    /**
+     * sirve para el tamaño de lstack 
+     * @return
+     */
+    public int size(){
+	
+	   return data.size();
 	}
 }
